@@ -1,6 +1,20 @@
 const express = require('express');
-const {taskRoutes} = require('./tasks')
+const mongoose = require('mongoose');
+const {uid} = require('uid')
+const Task = require('./model/Task');
+require('dotenv').config()
 
+//Routes
+const {taskRoutes} = require('./controller/tasks')
+
+mongoose.connect(process.env.MONGO_URI, ()=>{
+    console.log("Database Connected")
+});
+
+// const run = async (name) => {
+//     const task= new Task({id: uid(), name: name, isDone: false});
+//     await task.save();
+// }
 const app = express();
 
 //Middleware
@@ -13,5 +27,4 @@ app.use('/',(req, res)=>{
     res.json({message: 'Invalid'})
 })
 
-const PORT = 5000;
-app.listen(PORT);
+app.listen(process.env.PORT);
