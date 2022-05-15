@@ -2,9 +2,9 @@
 
 Simple Task Manager
 
-APIs
+## APIs
 
-GET /tasks
-POST /tasks/add
-PATCH /tasks/:id
-DELETE /tasks/:id
+GET /tasks <br/>
+POST /tasks/add <br/>
+PATCH /tasks/:id <br/>
+DELETE /tasks/:id <br/>
